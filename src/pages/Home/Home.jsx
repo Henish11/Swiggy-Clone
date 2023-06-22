@@ -1,10 +1,8 @@
 import { useEffect, useState } from "react"
-import { ALL_RESTAURANTS_API_LINK, ALL_LISTING_API_LINK} from "../../utils/config";
 import axios from "axios";
 import RestaurantCard from "../../component/RestaurantCard/RestaurantCard";
 import uuid from "react-uuid";
 import Shimmer from "../../component/Shimmer/Shimmer";
-
 
 
 const Home = () =>{
@@ -22,13 +20,14 @@ const Home = () =>{
     //     setAllRestaurant(data?.data?.data.cards.map(e=> e.data))
     // }
 
-    const getRestaurantMore = async ()=>{
+    const getRestaurantMore = async (offset)=>{
+
        const data = await axios.get(`https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=21.1417761&lng=72.77094149999999&offset=${offset}&sortBy=RELEVANCE&pageType=SEE_ALL&page_type=DESKTOP_SEE_ALL_LISTING`);
        console.log(data);
        setAllRestaurant(prev => [...prev, ...data?.data?.data.cards.map(e=> e.data)])
     }
     useEffect(()=>{
-        getRestaurantMore()
+        getRestaurantMore(offset)
     },[offset])
 
     const handleScroll = ()=>{
@@ -43,7 +42,7 @@ const Home = () =>{
         })
     },[])
 
-    return allRestaurant.length == 0 ? <Shimmer key={uuid()}/> : (
+    return allRestaurant.length === 0 ? <Shimmer key={uuid()}/> : (
         <div className="main">
             <div className="container">
                <div className="hotel-card-wrap">

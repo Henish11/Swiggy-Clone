@@ -28,8 +28,7 @@
     margin: 0;
     gap: 60px;
     list-style: none;
-    display: flex;
-    justify-content: end;
+    justify-content: flex-end;
 }
 .header .nav-bar a{
     color: var(--black-link-color);

@@ -1,5 +1,6 @@
 
 import "./Shimmer.css"
+import uuid from "react-uuid"
 
 const Shimmer = () =>{
     return(
@@ -8,7 +9,7 @@ const Shimmer = () =>{
                <div className="hotel-card-wrap">
                  {Array(12).fill(0).map(()=>{
                         return(
-                            <div className="shimmer-card-wrap">
+                            <div className="shimmer-card-wrap" key={uuid()}>
                                 <div className="shimmer-card-effect"></div>
                                 <div className="shimmer-card">
                                     <div className="img"></div>

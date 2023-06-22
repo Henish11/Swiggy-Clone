@@ -1,0 +1,107 @@
+
+
+.hotel-details-wrap{
+   padding-top: 20px;
+}
+.offer-card .offer-card-top img{
+   width: 20px;
+}
+.hotel-details-wrap .top-bar{
+   display: flex;
+   justify-content: space-between;
+   border-bottom: 1px dashed #d3d3d3;
+   padding-bottom: 15px;
+   margin-bottom: 15px;
+}
+.hotel-details-wrap .hotel-name{
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: 600;
+    color: #282c3f;
+    margin-bottom: 8px;
+    text-transform: capitalize;
+}
+.hotel-details-wrap .hotel-cousin{
+    font-size: 12px;
+}
+.hotel-details-wrap .location{
+    font-size: 12px;
+}
+.offer-card-wrap{
+    display: flex;
+    gap: 10px;
+    overflow-x: hidden;
+}
+.offer-card-wrap .offer-card{
+    border: 1px solid #e9e9eb;
+    box-sizing: border-box;
+    box-shadow: 0 1px 2px rgba(0,0,0,.04);
+    border-radius: 8px;
+    padding: 8px;
+    height: 100%;
+    min-width: 200px;
+}
+.hotel-details-wrap .top-bar .star-rating{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #e9e9eb;
+    box-shadow: 0 1px 5px #f9f9f9;
+    border-radius: 6px;
+    text-align: center;
+    padding: 8px;
+    max-width: 100px;
+}
+.hotel-details-wrap .top-bar .star-rating span:first-child{
+    color: #3d9b6d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid #e9e9eb;
+    font-weight: 700;
+    margin-bottom: 8px;
+    font-size: 15px;
+}
+.hotel-details-wrap .top-bar .star-rating span:last-child{
+    font-size: 10px;
+    color: #8b8d97;
+    font-weight: 600;
+}
+.hotel-details-wrap .top-bar .location span:first-child{
+    margin-right: 4px;
+}
+.hotel-details-wrap .d_time {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    line-height: 0;
+    color: #3e4152;
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+.hotel-details-wrap .d_time span{
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.offer-card .offer-card-top span{
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 600;
+    color: #686b78;
+}
+.offer-card .offer-card-bottom span{
+    font-size: 11px;
+    line-height: 16px;
+    font-weight: 600;
+    color: #93959f;
+}
+.offer-card .offer-card-bottom span.line{
+    font-size: 9px;
+    line-height: 10px;
+    transform: translateY(-2px);
+    display: inline-block;
+}
+

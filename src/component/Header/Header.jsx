@@ -3,14 +3,15 @@ import { ReactComponent as SiteLogo } from "../../assets/icons/sitelogo.svg";
 import { ReactComponent as SearchIcon } from "../../assets/icons/search.svg";
 import { ReactComponent as OfferIcon } from "../../assets/icons/offers.svg";
 import { ReactComponent as CartIcon } from "../../assets/icons/cart.svg";
-
-
 import { Link } from "react-router-dom";
 import "./Header.css"
+import { useSelector } from "react-redux";
 
 
 const Header = ()=>{
     const [addClass, setAddClass] = useState(false);
+    const cartItems = useSelector(store => store.cart.items)
+
     const changeNavbarClass = () => {
         if (window.scrollY >= 80) {
             setAddClass(true);
@@ -33,7 +34,7 @@ const Header = ()=>{
                         <ul className="nav-bar">
                             <li><Link to="/search"> <SearchIcon/> Search</Link></li>
                             <li><Link to="/offers"> <OfferIcon/> Offers</Link></li>
-                            <li><Link to="/checkout"> <CartIcon/> Cart</Link></li>
+                            <li><Link to="/checkout"> <CartIcon/> Cart - {cartItems.length}</Link></li>
                         </ul>
                     </div>
                 </div>

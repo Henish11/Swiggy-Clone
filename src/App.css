@@ -3,3 +3,7 @@
     max-width: 1230px !important;
     margin: auto;
 }
+.container-small{
+    max-width: 800px !important;
+    margin: auto;
+}
