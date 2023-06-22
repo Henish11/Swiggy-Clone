@@ -1,0 +1,54 @@
+
+
+    
+.shimmer-card-wrap .shimmer-card{
+    background: var(--white-color);
+    border: 1px solid var(--grey-color);
+    padding: 20px;
+    height: 376px;
+    width: 285px;
+}
+.shimmer-card-wrap .shimmer-card .img{
+    background-color: var(--grey-color) ;
+    width: 100%;
+    height: 150px;
+}
+.shimmer-card-wrap .shimmer-card .title span:first-child{
+    background-color: var(--grey-color);
+    width: calc(100% - 40px);
+    height: 20px;
+    display: block;
+    margin: 15px 0;
+}
+.shimmer-card-wrap .shimmer-card .title span:last-child{
+    background-color: var(--grey-color);
+    width: calc(100% - 10px);
+    height: 20px;
+    display: block;
+}
+.shimmer-card-wrap .shimmer-card .rating{
+    background-color: var(--grey-color);
+    width: calc(100%);
+    height: 30px;
+    display: block;
+    margin-top: 15px;
+}
+
+.shimmer-card-effect {
+    height: 376px;
+    width: 12px;
+    background: #ffffffde;
+    box-shadow: 0 0 10px 10px #ffffffde;
+    position: absolute;
+    animation: loading 2s infinite alternate;
+    overflow: hidden;
+    transform: rotate(15deg);
+}
+@keyframes loading {
+    from{
+        left: 0;
+    }
+    to{
+        left: 100%;
+    }
+}
