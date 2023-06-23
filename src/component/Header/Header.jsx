@@ -34,7 +34,10 @@ const Header = ()=>{
                         <ul className="nav-bar">
                             <li><Link to="/search"> <SearchIcon/> Search</Link></li>
                             <li><Link to="/offers"> <OfferIcon/> Offers</Link></li>
-                            <li><Link to="/checkout"> <CartIcon/> Cart - {cartItems.length}</Link></li>
+                            <li><Link to="/checkout" className="nav-cart"> 
+                              <div> <CartIcon/> <span className="nav-cart-count">{cartItems.length}</span></div> 
+                              Cart</Link>
+                              </li>
                         </ul>
                     </div>
                 </div>

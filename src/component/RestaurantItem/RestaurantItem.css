@@ -40,6 +40,7 @@
     font-size: 18px;
     font-weight: 700;
     font-family: var(--body-font);
+    margin-bottom: 0;
 }
 .hotem-item .left-block h4{
     font-size: 18px;

@@ -12,8 +12,8 @@ const RestaurantItem =(props) =>{
     
    const dispatch = useDispatch();
    const handleAddItem = (el)=>{
+      // localStorage.setItem(el)
       dispatch(addItem(el))
-      console.log(el);
    }
 
     return(

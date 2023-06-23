@@ -5,6 +5,7 @@
 }
 .offer-card .offer-card-top img{
    width: 20px;
+   margin-right: 4px;
 }
 .hotel-details-wrap .top-bar{
    display: flex;
@@ -103,5 +104,13 @@
     line-height: 10px;
     transform: translateY(-2px);
     display: inline-block;
+}
+.hotel-item-wrap .title{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.hotel-item-wrap .title>span{
+    margin-right: 10px;
 }
 

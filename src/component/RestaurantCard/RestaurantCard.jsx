@@ -13,7 +13,7 @@ const RestaurantCard = (props) =>{
             <div className="hotel-card">
             {promoted ? <div className="hotel-promoted">Promoted</div> : null}
             <div className="card-img">
-                <img src={IMG_LINK + cloudinaryImageId} alt={name} />
+                {cloudinaryImageId ? <img src={IMG_LINK + cloudinaryImageId} alt={name} /> : null }
             </div>
             <div className="title">
                 <span>{name}</span>

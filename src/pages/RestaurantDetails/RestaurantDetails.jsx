@@ -1,7 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom"
-import uuid from "react-uuid";
 import { RESTAURANT_DETAILS_API } from "../../utils/config";
 import "./RestaurantDetails.css"
 import { IoStarSharp } from "react-icons/io5"
@@ -9,6 +8,8 @@ import { IMG_LINK } from "../../utils/config";
 import {ReactComponent as ClockIcon} from "../../assets/icons/circle.svg"
 import {ReactComponent as MoneyIcon} from "../../assets/icons/rs.svg"
 import RestaurantItem from "../../component/RestaurantItem/RestaurantItem";
+import {v4 as uuidv4} from "uuid"
+import {BsChevronDown} from "react-icons/bs"
 
 
 
@@ -47,13 +48,13 @@ const RestaurantDetails = () =>{
                 </div>
             </div>
             <div className="d_time">
-                <span> <ClockIcon/> {restaurantDetails[0]?.card?.card?.info?.sla?.maxDeliveryTime}</span>
+                <span> <ClockIcon/> {restaurantDetails[0]?.card?.card?.info?.sla?.slaString} </span>
                 <span> <MoneyIcon/> {restaurantDetails[0]?.card?.card?.info?.costForTwoMessage}</span>
             </div>
             <div className="offer-card-wrap">
                 {restaurantDetails[1]?.card?.card?.gridElements?.infoWithStyle?.offers.map((el)=>{
                        return (
-                          <div className="offer-card" key={uuid()}>
+                          <div className="offer-card" key={uuidv4()}>
                               <div className="offer-card-top">
                                 <img src={`${IMG_LINK}${el?.info?.offerLogo}`} alt="" />
                                 <span>{el?.info?.header}</span>
@@ -67,23 +68,27 @@ const RestaurantDetails = () =>{
                 })}
             </div>
 
-            <div className="hotem-item-section">
+            <div className="hotem-item-section" >
                 {restaurantDetails[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.slice(1,-2)?.map((e)=>{
                     return(
-                       <div className="hotel-item-wrap">
-                        <div className="title">
-                          <h4>{e?.card?.card?.title} ({e?.card?.card?.itemCards?.length})</h4>
-                        </div>
-                        
-                        {
-                            e?.card?.card?.itemCards.map((el)=>{
-                               return <RestaurantItem data={el}  />
-                            })
-                        }
-
+                       <div className="hotel-item-wrap" key={uuidv4()}>
+                           {
+                            e?.card?.card?.itemCards?.length > 0 && (
+                            <>
+                                <div className="title">
+                                   <h4>{e?.card?.card?.title} ({e?.card?.card?.itemCards?.length})</h4>
+                                   <button onClick={e=> e.target.classList.toggle('active')}> <BsChevronDown/> </button>
+                                </div>
+                                {
+                                    e?.card?.card?.itemCards.map((el)=>{
+                                        return <RestaurantItem data={el} key={uuidv4()} />
+                                    })
+                                }
+                            </>
+                            )
+                           }
                        </div>
-                        ) 
-                   
+                    )                  
                 })}        
             </div>
         </div>
