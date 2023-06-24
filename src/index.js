@@ -4,7 +4,6 @@ import App from "./App"
 import Home from "./pages/Home/Home"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import "./index.css"
-import 'bootstrap/dist/css/bootstrap.min.css'
 import Search from "./pages/Search/Search"
 import Offers from "./pages/Offers/Offers"
 import Checkout from "./pages/Checkout/Checkout"

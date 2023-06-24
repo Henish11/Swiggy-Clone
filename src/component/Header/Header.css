@@ -11,7 +11,11 @@
     transition: all 0.5s ease-in-out;
     z-index: 999;
 }
-
+.header .nav-wrap{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 .header.sticky{
     position: sticky;
     transition: all 0.5 ease-in-out;
@@ -31,10 +35,13 @@
     justify-content: flex-end;
 }
 .header .nav-bar a{
-    color: var(--black-link-color);
+    color: #3d4152;
     text-decoration: none;
     font-weight: 600;
     font-family: var(--body-font);
+    display: flex;
+    align-items: center;
+    gap: 5px;
 }
 .header .nav-bar li:nth-child(1) a svg,
 .header .nav-bar li:nth-child(2) a svg {

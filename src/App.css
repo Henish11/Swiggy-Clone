@@ -1,9 +1,11 @@
 
 .container{
+    width: 100%;
     max-width: 1230px !important;
     margin: auto;
 }
 .container-small{
+    width: 100%;
     max-width: 800px !important;
     margin: auto;
 }

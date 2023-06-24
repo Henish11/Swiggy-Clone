@@ -10,6 +10,7 @@ import {ReactComponent as MoneyIcon} from "../../assets/icons/rs.svg"
 import RestaurantItem from "../../component/RestaurantItem/RestaurantItem";
 import {v4 as uuidv4} from "uuid"
 import {BsChevronDown} from "react-icons/bs"
+import Shimmer from "../../component/Shimmer/Shimmer";
 
 
 
@@ -28,7 +29,7 @@ const RestaurantDetails = () =>{
     },[])
    
 
-    return(
+    return restaurantDetails.length === 0 ? <Shimmer/> :  (
      <div className="hotel-details-wrap">
         <div className="container-small">
             <div className="top-bar">
@@ -77,7 +78,8 @@ const RestaurantDetails = () =>{
                             <>
                                 <div className="title">
                                    <h4>{e?.card?.card?.title} ({e?.card?.card?.itemCards?.length})</h4>
-                                   <button onClick={e=> e.target.classList.toggle('active')}> <BsChevronDown/> </button>
+                                   <BsChevronDown/>
+                                   {/* <button onClick={e=> e.target.classList.toggle('active')}>  </button> */}
                                 </div>
                                 {
                                     e?.card?.card?.itemCards.map((el)=>{

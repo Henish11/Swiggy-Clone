@@ -4,7 +4,6 @@
     display: grid;
     grid-template-columns: repeat(4,1fr);
     gap: 20px;
-    padding-top: 50px;
 }
 .hotel-card-wrap .hotel-card{
     background: var(--white-color);
@@ -12,8 +11,7 @@
     cursor: pointer;
     padding: 20px;
     position: relative;
-    height: 345px;
-    width: 285px;
+    height: 310px;
 }
 .hotel-card-wrap a{
     text-decoration: none;
@@ -94,4 +92,18 @@
     clip-path: polygon(50% 0, 0 100%, 100% 100%);
     background-color: var(--black-color);
     transform: rotate(162deg);
+}
+
+
+/* responsive */
+
+@media (max-width:767px){
+
+    .hotel-card-wrap {
+        grid-template-columns: repeat(1,1fr);
+        justify-content: center;
+    }
+    .hotel-card-wrap .hotel-card{
+        margin: auto;
+    }
 }

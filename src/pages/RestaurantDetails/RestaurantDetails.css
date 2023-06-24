@@ -93,8 +93,14 @@
     font-weight: 600;
     color: #686b78;
 }
+.offer-card .offer-card-bottom{
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    letter-spacing: -0.5px;
+}
 .offer-card .offer-card-bottom span{
-    font-size: 11px;
+    font-size: 10px;
     line-height: 16px;
     font-weight: 600;
     color: #93959f;
