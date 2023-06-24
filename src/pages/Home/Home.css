@@ -2,14 +2,4 @@
 .main{
     padding-top: 50px;
 }
-.hotel-top-bar{
-    border-bottom: 1px solid #e9e9eb;
-    padding-bottom: 8px;
-    margin-bottom: 50px;
-}
-.hotel-top-bar .hotel-count{
-    font-weight: 600;
-    font-size: 25px;
-    color: #3d4152;
-}
 
