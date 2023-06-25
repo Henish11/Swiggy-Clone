@@ -3,28 +3,32 @@ import { IMG_LINK } from "../../utils/config";
 import "./Checkout.css";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { addItem,removeItem,clearCart } from "../../redux/cartSlice";
+import {clearCart,removeItem} from "../../redux/cartSlice";
 import {v4 as uuidv4} from "uuid"
 
 const Checkout = () =>{
-
+    
     const cartItem = useSelector(store=> store.cart.items)
-    console.log(cartItem);
+
+    // const [quantity,setQuantity] = useState(0)
+
+
+    // reducers
     const dispatch = useDispatch();
     const handleClearCart = () =>{
         dispatch(clearCart())
     }
-    const handleAddItem = (el) =>{
-        dispatch(addItem(el));
-    }
-    const handleRemoveItem = (el) =>{
-        dispatch(removeItem(el));
+    // const handleIncreaseItem = (el) =>{
+    //     dispatch(increaseItem(el));
+    // }
+    const handleDecreaseItem = (el) =>{
+        dispatch(removeItem(el?.card?.info?.id));
     }
 
+    // totalAmount
     const TotalAmount = cartItem.map((el)=>{
         return  (el.card.info.price/100)
     })
-    console.log(TotalAmount);
 
     return cartItem.length === 0 
         ?
@@ -44,7 +48,7 @@ const Checkout = () =>{
            <div className="container-small">
               <div className="top-bar-btn">
                 <Link to={"/"} className="back">Back</Link>
-                <button className="clear" onClick={()=>{handleClearCart()}}>Clear Cart</button>
+                <button className="clear" onClick={handleClearCart}>Clear Cart</button>
               </div>
               <div className="cart-wrap">
               {
@@ -58,9 +62,9 @@ const Checkout = () =>{
                                 <h3>{el?.card?.info?.name}</h3>
                             </div>
                             <div className="add-remove-btn">
-                                    <button className="remove" onClick={(el)=>{handleRemoveItem(el)}}>-</button>
+                                    <button onClick={()=>{handleDecreaseItem(el)}} className="remove">-</button>
                                     <span>{cartItem.length}</span>
-                                    <button className="add" onClick={(el)=>{handleAddItem(el)}}>+</button>
+                                    <button  className="add" >+</button>
                             </div>
                             <div className="price">
                                ₹{el?.card?.info?.price/100}

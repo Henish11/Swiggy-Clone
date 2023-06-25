@@ -15,7 +15,7 @@ const Home = () =>{
     const [filterData, setFilterData] = useState([])
 
     const getRestaurantMore = async (offset)=>{
-        const data = await axios.get(`https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=21.1417761&lng=72.77094149999999&offset=${offset}&sortBy=RELEVANCE&pageType=SEE_ALL&page_type=DESKTOP_SEE_ALL_LISTING`);
+        const data = await axios.get(`https://www.swiggy.com/dapi/restaurants/list/v5?lat=21.1417761&lng=72.77094149999999&offset=${offset}&sortBy=RELEVANCE&pageType=SEE_ALL&page_type=DESKTOP_SEE_ALL_LISTING`);
         setAllRestaurant(prev => [...prev, ...data?.data?.data?.cards.map(e=> e.data)])
         setFilterData(prev => [...prev, ...data?.data?.data?.cards.map(e=> e.data)])
         setRestaurantCount(data?.data?.data?.totalSize)

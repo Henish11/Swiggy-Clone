@@ -17,13 +17,13 @@ const TopFilter = ({restaurantCount,setFilterData,filterData,allRestaurant}) =>{
     // Sort by Rating
     const sortbyRating = () =>{
         const sortedAllRestaurant = [...filterData]
-        sortedAllRestaurant.sort((a,b)=> (Number(b?.data?.avgRating)) - Number(a?.data?.avgRating))
+        sortedAllRestaurant.sort((a,b)=> (+(b?.data?.avgRating)) - +(a?.data?.avgRating))
         setFilterData(sortedAllRestaurant)
     }
     // Sort by DeliveryTime
     const sortbyDeliveryTime = () =>{
         const sortedAllRestaurant = [...filterData]
-        sortedAllRestaurant.sort((a,b)=> (Number(a?.data?.deliveryTime)) - Number(b?.data?.deliveryTime))
+        sortedAllRestaurant.sort((a,b)=> (+(a?.data?.deliveryTime)) - +(b?.data?.deliveryTime))
         setFilterData(sortedAllRestaurant)
     }
     // Sort by Relevance
@@ -35,8 +35,8 @@ const TopFilter = ({restaurantCount,setFilterData,filterData,allRestaurant}) =>{
         <div className="hotel-top-bar">
             <h1 className="hotel-count">{restaurantCount} restaurants</h1>
             <div className="filter-btn">
-                <button onClick={sortbyRelevance}>Relevance</button>  
-                <button onClick={sortbyDeliveryTime}>Delivery Time</button> 
+                <button className={sortbyRelevance ? "border" : null} onClick={sortbyRelevance}>Relevance</button>  
+                <button className={sortbyDeliveryTime ? "border" : null} onClick={sortbyDeliveryTime}>Delivery Time</button> 
                 <button onClick={sortbyRating}>Rating</button> 
                 <button onClick={sortLowtohigh}>Cost: Low To High</button> 
                 <button onClick={sortHightolow}>Cost: High To Low</button>     

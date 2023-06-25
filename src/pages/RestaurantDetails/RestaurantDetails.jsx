@@ -21,7 +21,6 @@ const RestaurantDetails = () =>{
 
     const getrestaurantDetails = async ()=>{
         const data = await axios(RESTAURANT_DETAILS_API+id);
-        console.log(data?.data?.data?.cards);
         setRestaurantDetails(data?.data?.data?.cards)
     }
     useEffect(()=>{
