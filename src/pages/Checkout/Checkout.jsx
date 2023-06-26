@@ -9,7 +9,7 @@ import {v4 as uuidv4} from "uuid"
 const Checkout = () =>{
     
     const cartItem = useSelector(store=> store.cart.items)
-
+    console.log(cartItem);
     // const [quantity,setQuantity] = useState(0)
 
 

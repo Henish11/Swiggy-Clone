@@ -17,7 +17,7 @@ const RestaurantCard = (props) =>{
             </div>
             <div className="title">
                 <span>{name}</span>
-                <span>{cuisines.join(", ")}</span>
+                <span>{ cuisines?.length > 0 ?  cuisines.join(", ") : cuisines}</span>
                 </div>
                 <div className="rating">
                 <span className={avgRating >= 4 ? " star-badge" : "red-star star-badge" }> <AiFillStar/> {avgRating} </span>
