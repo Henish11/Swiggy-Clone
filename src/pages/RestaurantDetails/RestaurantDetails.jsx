@@ -18,6 +18,7 @@ const RestaurantDetails = () =>{
 
     const [restaurantDetails,setRestaurantDetails] = useState([]);
     const {id} = useParams();
+    const groupedCardID = restaurantDetails.findIndex( el=> el.groupedCard);
 
     const getrestaurantDetails = async ()=>{
         const data = await axios(RESTAURANT_DETAILS_API+id);
@@ -69,7 +70,7 @@ const RestaurantDetails = () =>{
             </div>
 
             <div className="hotem-item-section" >
-                {restaurantDetails[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.slice(1,-2)?.map((e)=>{
+                {restaurantDetails[groupedCardID]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.slice(1,-2)?.map((e)=>{
                     return(
                        <div className="hotel-item-wrap" key={uuidv4()}>
                            {

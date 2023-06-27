@@ -3,31 +3,32 @@ import { IMG_LINK } from "../../utils/config";
 import "./Checkout.css";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import {clearCart,removeItem} from "../../redux/cartSlice";
+import {clearCart,removeItem,increaseItem,decreaseItem} from "../../redux/cartSlice";
 import {v4 as uuidv4} from "uuid"
 
 const Checkout = () =>{
     
     const cartItem = useSelector(store=> store.cart.items)
     console.log(cartItem);
-    // const [quantity,setQuantity] = useState(0)
-
 
     // reducers
     const dispatch = useDispatch();
     const handleClearCart = () =>{
         dispatch(clearCart())
     }
-    // const handleIncreaseItem = (el) =>{
-    //     dispatch(increaseItem(el));
-    // }
-    const handleDecreaseItem = (el) =>{
+    const handleIncreaseItem = (el) =>{
+        dispatch(increaseItem(el));
+    }  
+    const handleDecreaseItem = (el)=>{
+        dispatch(decreaseItem(el))
+    } 
+    const handleRemoveItem = (el) =>{
         dispatch(removeItem(el?.card?.info?.id));
     }
 
     // totalAmount
     const TotalAmount = cartItem.map((el)=>{
-        return  (el.card.info.price/100)
+        return  ((el?.card?.info?.price/100) * (el?.card?.info?.inStock))
     })
 
     return cartItem.length === 0 
@@ -62,12 +63,12 @@ const Checkout = () =>{
                                 <h3>{el?.card?.info?.name}</h3>
                             </div>
                             <div className="add-remove-btn">
-                                    <button onClick={()=>{handleDecreaseItem(el)}} className="remove">-</button>
-                                    <span>{cartItem.length}</span>
-                                    <button  className="add" >+</button>
+                                    <button onClick={()=>{ (el?.card?.info?.inStock) > 1 ? handleDecreaseItem(el) : handleRemoveItem(el) }} className="remove">-</button>
+                                    <span>{el?.card?.info?.inStock}</span>
+                                    <button onClick={()=>{handleIncreaseItem(el)}}  className="add" >+</button>
                             </div>
                             <div className="price">
-                               ₹{el?.card?.info?.price/100}
+                             { (el?.card?.info?.defaultPrice) ? `₹${(el?.card?.info?.defaultPrice/100)*(el?.card?.info?.inStock)}` : `₹${(el?.card?.info?.price/100)*(el?.card?.info?.inStock)}`  }
                             </div>
                         </div>
                     )
