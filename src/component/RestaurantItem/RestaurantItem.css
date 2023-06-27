@@ -110,3 +110,8 @@
     width: 100px;
     padding: 5px 0;
 }
+.hotem-item .add-btn.added:active{
+    transition: all 0.2s ease-in-out;
+    -webkit-transform: scale(0.8) translateX(-60%);
+    transform: scale(0.8) translateX(-60%);
+}
