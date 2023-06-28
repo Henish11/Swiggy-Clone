@@ -30,7 +30,7 @@ const Header = ()=>{
                 <ul className="nav-bar">
                     <li><Link to="/search"> <SearchIcon/> Search</Link></li>
                     <li><Link to="/offers"> <OfferIcon/> Offers</Link></li>
-                    <li><Link to="/checkout" className="nav-cart"> 
+                    <li><Link to="/checkout" className={cartItems.length > 0 ? "active nav-cart" : "nav-cart" }> 
                         <div> <CartIcon/> <span className="nav-cart-count">{cartItems.length}</span></div> 
                         Cart</Link>
                     </li>

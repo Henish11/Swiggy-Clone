@@ -147,6 +147,7 @@
     justify-content: space-evenly;
     padding: 0px 10px;
     gap: 12px;
+    
 }
 .cart-item .add-remove-btn button{
     padding: 5px;

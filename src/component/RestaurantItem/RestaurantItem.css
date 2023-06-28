@@ -79,7 +79,7 @@
 }
 .hotem-item .veg-nonveg-icon{
     margin: -70px;
-    margin-bottom: calc(-70px + 5px);
+    margin-bottom: calc(-70px - 1px);
     transform: scale(.1);
 }
 .hotem-item .best-seller{
@@ -114,4 +114,10 @@
     transition: all 0.2s ease-in-out;
     -webkit-transform: scale(0.8) translateX(-60%);
     transform: scale(0.8) translateX(-60%);
+}
+.hotem-item .left-block span.old-price{
+    font-weight: 300;
+    color: #7e808c;
+    text-decoration: line-through;
+    font-size: 12px;
 }

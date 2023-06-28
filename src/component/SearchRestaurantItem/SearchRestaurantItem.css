@@ -1,0 +1,36 @@
+
+.search-restaurant-card{
+    width: calc((100%/2) - 40px);
+    background: #fafafa;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgb(191 191 191 / 52%);
+    color: #353535;
+    padding: 15px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    text-decoration: none;
+}
+.search-restaurant-card .left-block img{
+    width: 100px;
+    height: 100px;
+    background: #eef0f5;
+    border-radius: 4px;
+    object-fit: cover;
+}
+.search-restaurant-card .right-block h3.title{
+    font-size: 16px;
+}
+.search-restaurant-card .right-block .info{
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin: 6px 0;
+    color: #696b79;
+}
+.search-restaurant-card .right-block .cuisines{
+    font-size: 13px;
+    color: #93959f;
+}

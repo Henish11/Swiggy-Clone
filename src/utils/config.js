@@ -13,3 +13,13 @@ export const RESTAURANT_DETAILS_API =
 
 
 export const IMG_LINK = 'https://corsproxy.io/?https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_1024/';
+
+
+export const SEARCH_CUISINES_API =
+	'https://corsproxy.io/?https://www.swiggy.com/dapi/landing/PRE_SEARCH?lat=21.1417761&lng=72.77094149999999';
+
+export const SEARCH_LINK_API =
+	'https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/search/suggest?lat=21.1417761&lng=72.77094149999999&trackingId=undefined&str=';
+    
+export const SUGGESTION_ITEM_API =
+	'https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/search/v3?lat=21.1417761&lng=72.77094149999999&str=Domino%27s%20Pizza&submitAction=SUGGESTION&metaData=';
