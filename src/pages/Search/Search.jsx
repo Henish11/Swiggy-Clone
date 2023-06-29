@@ -1,15 +1,18 @@
 import axios from "axios"
-import { useEffect } from "react"
-import { useState } from "react"
+import { useState,useEffect } from "react"
 import SearchItemCard from "../../component/SearchItemCard/SearchItemCard"
 import SearchRestaurantItem from "../../component/SearchRestaurantItem/SearchRestaurantItem"
 import "./Search.css"
+import { SEARCH_CUISINES_API } from "../../utils/config"
+import { IMG_LINK } from "../../utils/config"
+import { useNavigate } from "react-router-dom"
 
 const Search = () =>{
 
     const [searchText,setSearchText] = useState('');
     const [searchData,setSearchData] = useState([]);
-    const [toggle,setToggle] = useState(0)
+    const [toggle,setToggle] = useState(0);
+    const [cuisinesData,setCuisinesData] = useState([]);
 
     useEffect(()=>{
         try {
@@ -23,13 +26,33 @@ const Search = () =>{
         }
     },[searchText])
 
-    console.log(searchData);
+    useEffect(()=>{
+        try {
+            axios.get(SEARCH_CUISINES_API)
+            .then((res)=>{
+               console.log(res?.data?.data?.cards[1]?.card?.card?.imageGridCards?.info);
+               setCuisinesData(res?.data?.data?.cards[1]?.card?.card?.imageGridCards?.info)
+            })
+        } catch (error) {
+            alert(error.massage)
+        }
+    },[])
 
     const handleToggle = (id) =>{
         setToggle(id);
     }
-
     
+    const navigate = useNavigate()
+    const handleSearchCuisines = (el) =>{
+      return navigate(`?${el.entityId.split('?').at(-1)}`)
+    }
+    const queryToken = () =>{
+        const value = window.location.search;
+        const token = value.split('=').at(-1).split('%20');
+        console.log(token);
+        return token 
+    }
+     
     return (
         <div className="search-wrap">
             <div className="container-small ">
@@ -39,7 +62,21 @@ const Search = () =>{
                 <div className="search-box before-search">
                     <form>
                       <input type="text" placeholder="Search for restaurants and food" value={searchText} onChange={(e)=>{setSearchText(e.target.value)}}/>
-                    </form> 
+                    </form>
+                    
+                    <div className="search-cuisines-wrap">
+                        <h3>Popular Cuisines</h3>
+                        <div className="search-cuisines-data">
+                            {cuisinesData.map((el)=>{
+                                return  (<button onClick={()=>{
+                                    handleSearchCuisines(el)
+                                    setSearchText(queryToken())
+                                    }}>
+                                            <img src={`${IMG_LINK}${el.imageId}`} alt="search-cuisines"/>
+                                        </button> )
+                            })}
+                        </div>
+                    </div>
                 </div> 
                 :  
                 <div className="search-box">

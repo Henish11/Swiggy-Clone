@@ -46,3 +46,34 @@
     background-color: #3e4152;
     border: none;
 }
+.search-cuisines-data {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    overflow-x: scroll;
+}
+.search-cuisines-data img{
+    height: 150px;
+    width: 115px;
+    object-fit:cover;
+}
+.search-cuisines-wrap h3{
+    margin: 20px 0;
+    font-size: 20px 0 30px;
+}
+.search-cuisines-data::-webkit-scrollbar {
+    height: 6px;
+    border-radius: 4px;
+    background-color: #F5F5F5;
+}
+.search-cuisines-data::-webkit-scrollbar-thumb {
+    background-color: rgb(192 192 192 / 45%);
+    border-radius: 4px;
+}
+.search-cuisines-data button{
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+

@@ -79,16 +79,16 @@ html{
     stroke: #48c479;
     fill: #48c479;
 }
-.nav-cart.active .nav-cart-count{
+.header .nav-bar a:hover{
+    color: #fc8019;
+    transition: all 0.2s ease-in-out;
+}
+.nav-cart.active .nav-cart-count,
+.header .nav-bar a:hover .nav-cart-count{
     color: #fff !important;
 }
-.header .nav-bar a.nav-cart:hover,
-.header .nav-bar a.nav-cart.active:hover .nav-cart-count{
-    color: #fc8019;
-    transition: all 0.3s ease-in-out;
-}
-.header .nav-bar a.nav-cart.active:hover svg{
-    stroke: #fc8019;
-    fill: #fc8019;
-    transition: all 0.3s ease-in-out;
+.header .nav-bar a:hover svg{
+    stroke: #fc8019 !important;
+    fill: #fc8019 !important;
+    transition: all 0.2s ease-in-out;
 }

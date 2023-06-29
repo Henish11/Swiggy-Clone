@@ -35,8 +35,8 @@ const TopFilter = ({restaurantCount,setFilterData,filterData,allRestaurant}) =>{
         <div className="hotel-top-bar">
             <h1 className="hotel-count">{restaurantCount} restaurants</h1>
             <div className="filter-btn">
-                <button className={sortbyRelevance ? "border" : null} onClick={sortbyRelevance}>Relevance</button>  
-                <button className={sortbyDeliveryTime ? "border" : null} onClick={sortbyDeliveryTime}>Delivery Time</button> 
+                <button onClick={sortbyRelevance}>Relevance</button>  
+                <button onClick={sortbyDeliveryTime}>Delivery Time</button> 
                 <button onClick={sortbyRating}>Rating</button> 
                 <button onClick={sortLowtohigh}>Cost: Low To High</button> 
                 <button onClick={sortHightolow}>Cost: High To Low</button>     

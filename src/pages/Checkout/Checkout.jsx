@@ -1,7 +1,7 @@
 import {useSelector } from "react-redux/es/hooks/useSelector"
 import { IMG_LINK } from "../../utils/config";
 import "./Checkout.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import {clearCart,removeItem,increaseItem,decreaseItem} from "../../redux/cartSlice";
 import {v4 as uuidv4} from "uuid"
@@ -10,6 +10,12 @@ const Checkout = () =>{
     
     const cartItem = useSelector(store=> store.cart.items)
     console.log(cartItem);
+    
+    // Navigate
+    const navigate = useNavigate();
+    const goBack = () =>{
+        return navigate(-1)
+    }
 
     // reducers
     const dispatch = useDispatch();
@@ -48,7 +54,7 @@ const Checkout = () =>{
           <div className="checkout-section">
            <div className="container-small">
               <div className="top-bar-btn">
-                <Link to={"/"} className="back">Back</Link>
+                <Link onClick={goBack} className="back">Back</Link>
                 <button className="clear" onClick={handleClearCart}>Clear Cart</button>
               </div>
               <div className="cart-wrap">

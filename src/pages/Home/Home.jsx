@@ -14,6 +14,7 @@ const Home = () =>{
     const [restaurantCount,setRestaurantCount] = useState(0);
     const [filterData, setFilterData] = useState([])
 
+    // Restaurant data
     const getRestaurantMore = async (offset)=>{
         try{
             const data = await axios.get(`https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=21.1417761&lng=72.77094149999999&offset=${offset}&sortBy=RELEVANCE&pageType=SEE_ALL&page_type=DESKTOP_SEE_ALL_LISTING`);
@@ -26,12 +27,12 @@ const Home = () =>{
         }
  
     }
-    console.log(allRestaurant);
-   
     useEffect(()=>{
         getRestaurantMore(offset)
     },[offset])
 
+
+    // scroll
     const handleScroll = ()=>{
         if( window.innerHeight +  document.documentElement.scrollTop + 1 >= document.documentElement.scrollHeight ){
             setOffset(prev => prev + 16)
@@ -57,8 +58,8 @@ const Home = () =>{
                <div className="hotel-card-wrap">
                   { filterData.length > 0 && filterData.map((restaurant)=>{
                             return <RestaurantCard key={uuidv4()} hotel={restaurant} />
-                        })
-                  }
+                        }) 
+                     } 
                   
                </div>
             </div>
