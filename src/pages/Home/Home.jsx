@@ -61,7 +61,7 @@ const Home = () =>{
                 filterData={filterData}
                 allRestaurant={allRestaurant}
                />
-               <div className="hotel-card-wrap" id="scroll-down">
+               <div className="hotel-card-wrap">
                   { filterData.length > 0 && filterData.map((restaurant)=>{
                             return <RestaurantCard key={uuidv4()} hotel={restaurant} />
                         }) 

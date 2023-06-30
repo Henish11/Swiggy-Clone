@@ -48,6 +48,15 @@ const Offers = () =>{
         setOfferData(filteredRatingData)
     }
 
+    // Veg
+    const filterVeg = ()=>{
+        const newOfferData = [...offerData];
+        const filteredVegData = newOfferData.filter((e)=>{
+            return e?.info?.veg === true
+        })
+        setOfferData(filteredVegData)
+    }
+
     // Relevance
     const filterRelevance = ()=>{
         setOfferData(relevanceData)
@@ -62,6 +71,7 @@ const Offers = () =>{
                    <button onClick={filterRelevance}>Relevance</button>
                    <button onClick={filterDelivery}>Fast Delivery</button>
                    <button onClick={filterRating}>Rating</button>
+                   <button onClick={filterVeg}>Veg</button>
                    <button onClick={filterRelevance}>Clear</button>
                 </div>
                 

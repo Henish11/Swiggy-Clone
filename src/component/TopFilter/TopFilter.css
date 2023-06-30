@@ -1,5 +1,6 @@
 
 .hotel-top-bar{
+    position: relative;
     border-bottom: 1px solid #e9e9eb;
     padding-bottom: 8px;
     margin-bottom: 50px;
@@ -35,6 +36,9 @@
     width: 100%;
     background-color: #000;
 }
+.mobile-filter-btn{
+    display: none;
+}
 
 
 /* Responsive */
@@ -53,8 +57,50 @@
 @media (max-width:767px){
     .hotel-top-bar .filter-btn{
         display: none;
+        position: absolute;
+        top: 46px;
+        right: 0px;
+        z-index: 99;
+        flex-direction: column;
+        background-color: #fff;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0 2px 20px rgb(0 0 0 / 14%);
+        gap: 10px;
+    }
+    .hotel-top-bar .filter-btn button{
+        font-size: 14px;
     }
     .hotel-top-bar {
         margin-bottom: 35px;
     }
+    .hotel-top-bar .filter-btn.active{
+        display: flex;
+    }
+    .mobile-filter-btn {
+        background-color: transparent;
+        border-radius: 18px;
+        border: 1px solid rgb(226, 226, 231);
+        padding: 9px 12px;
+        display: inline-grid;
+        width: max-content;
+        grid-auto-flow: column;
+        gap: 8px;
+        height: 37px;
+        box-shadow: rgba(2, 6, 12, 0.04) 0px 2px 12px;
+        transition: all 100ms ease-in 0s;
+    }
+    .mobile-filter-btn.inactive{
+        display: none;
+    }
+    .mobile-filter-btn svg{
+        height: 18px;
+        width: 18px;
+    } 
+    .mobile-filter-btn.close{
+        background-color: rgba(2, 6, 12, 0.15);
+        border: 1px solid rgb(54, 57, 62);
+    }
+
+
 }
