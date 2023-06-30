@@ -35,3 +35,26 @@
     width: 100%;
     background-color: #000;
 }
+
+
+/* Responsive */
+
+@media (max-width:840px){
+    .hotel-top-bar .hotel-count {
+        font-size: 20px;
+    }
+    .hotel-top-bar .filter-btn {
+        gap: 15px;
+    }
+    .hotel-top-bar .filter-btn button{
+        font-size: 15px;
+    }
+}
+@media (max-width:767px){
+    .hotel-top-bar .filter-btn{
+        display: none;
+    }
+    .hotel-top-bar {
+        margin-bottom: 35px;
+    }
+}

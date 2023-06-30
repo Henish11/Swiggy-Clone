@@ -121,3 +121,33 @@
     text-decoration: line-through;
     font-size: 12px;
 }
+
+
+/* Responsive */
+
+@media (max-width:767px){
+    .hotem-item .left-block h4 {
+        font-size: 16px;
+    }
+    .hotem-item .right-block .dummy-img,
+    .hotem-item .right-block img{
+        height: 90px;
+        width: 100px;
+    }
+    .hotem-item .right-block .img::after{
+        height: 90px;
+    }
+    .hotem-item .add-btn {
+        width: 80px;
+    }
+    .hotel-item-wrap .hotem-item {
+        gap: 20px;
+    }
+    .hotem-item .left-block p {
+        width: 100%;
+    }
+    .hotem-item-section .hotel-item-wrap {
+        border-bottom: 10px solid #f2f2f2;
+        padding-bottom: 0px;
+    }
+}

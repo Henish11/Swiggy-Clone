@@ -51,6 +51,7 @@
     font-size:11px;
     margin-top: 10px;
     display: flex;
+    align-items: center;
     justify-content: space-between;
     border-bottom: 1px solid #d3d3d3 ;
     padding-bottom: 10px;
@@ -97,13 +98,32 @@
 
 /* responsive */
 
+@media (max-width:1199px){
+   
+    .hotel-card-wrap .hotel-card {
+        padding: 15px;
+        height: 300px;
+    }
+}
+@media (max-width:1023px){
+    .hotel-card-wrap {
+        grid-template-columns: repeat(3,1fr);
+    }
+}
+
 @media (max-width:767px){
 
+    .hotel-card-wrap {
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+@media (max-width:575px){
     .hotel-card-wrap {
         grid-template-columns: repeat(1,1fr);
         justify-content: center;
     }
     .hotel-card-wrap .hotel-card{
         margin: auto;
+        width: 260px;
     }
 }

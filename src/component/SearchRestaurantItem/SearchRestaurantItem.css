@@ -34,3 +34,17 @@
     font-size: 13px;
     color: #93959f;
 }
+
+/* Responsive */
+
+@media (max-width:767px){
+    .search-restaurant-card{
+        width: calc((100%) - 0px) !important;
+        padding: 10px;
+        gap: 10px;
+    }
+    .search-restaurant-card .right-block .info {
+        flex-wrap: wrap;
+        row-gap: 2px;
+    }
+}

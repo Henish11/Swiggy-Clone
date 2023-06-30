@@ -1,4 +1,5 @@
 
+export const OFFERS_DATA = 'https://corsproxy.io/?https://www.swiggy.com/api/seo/getListing?lat=21.1417761&lng=72.77094149999999'
 
 export const ALL_RESTAURANTS_API_LINK =
 // 'https://www.swiggy.com/dapi/restaurants/list/v5?lat=21.1417761&lng=72.77094149999999&page_type=DESKTOP_WEB_LISTING';

@@ -25,3 +25,12 @@ body{
     color: var(--body-color);
     font-size: 16px;
 }
+
+
+/* Responsive */
+
+@media (max-width:576px){
+  body{
+    font-size: 15px;
+  }
+}

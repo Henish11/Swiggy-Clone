@@ -1,5 +1,22 @@
 
 .main{
-    padding-top: 50px;
+    padding: 50px 15px 0;
+}
+.mobile-banner{
+    display: none;
+}
+.mobile-banner img{
+    width: 100%;
+}
+
+/* Responsive */
+@media (max-width:767px){
+    .mobile-banner{
+        display:block;
+        margin-bottom: 20px;
+    }
+    .main{
+        padding: 30px 15px 0;
+    }
 }
 

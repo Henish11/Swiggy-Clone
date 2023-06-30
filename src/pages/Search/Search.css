@@ -1,5 +1,5 @@
 .search-wrap{
-    padding-top: 50px;
+    padding: 50px 15px 0;
 }
 .search-wrap .search-box.before-search{
     height: calc(100vh - 100px);
@@ -76,4 +76,24 @@
     cursor: pointer;
 }
 
+
+/* Responsive */
+
+@media(max-width:767px){
+    .search-cuisines-data img {
+        height: 90px;
+        width: 82px;
+        object-fit: cover;
+    }
+    .search-wrap {
+        padding: 30px 15px 0;
+    }
+    .search-wrap .search-box form input[type="text"] {
+        height: 44px;
+        padding: 0 15px;
+        font-size: 14px;
+        margin-bottom: 15px;
+    }
+    
+}
 
