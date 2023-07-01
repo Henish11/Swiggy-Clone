@@ -12,6 +12,10 @@ const Offers = () =>{
      
     const [offerData,setOfferData] = useState([]);
     const [relevanceData,setRelevanceData] = useState([]);
+    const [vegData,setVegData] = useState([]);
+    const [nonVegData,setNonVegData] = useState([]);
+
+
 
     
     const findOfferData = async () =>{
@@ -19,7 +23,9 @@ const Offers = () =>{
             await axios.get(OFFERS_DATA)
             .then((res)=>{
                setOfferData(res?.data?.data?.success?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-               setRelevanceData(res?.data?.data?.success?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+               setRelevanceData(res?.data?.data?.success?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+               setVegData(res?.data?.data?.success?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+               setNonVegData(res?.data?.data?.success?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
             })
          } catch (error) {
             alert(error.message)
@@ -50,11 +56,20 @@ const Offers = () =>{
 
     // Veg
     const filterVeg = ()=>{
-        const newOfferData = [...offerData];
+        const newOfferData = [...vegData];
         const filteredVegData = newOfferData.filter((e)=>{
             return e?.info?.veg === true
         })
         setOfferData(filteredVegData)
+    }
+
+    // Non-Veg
+    const filterNonVeg = ()=>{
+        const newOfferData = [...nonVegData];
+        const filteredNonVegData = newOfferData.filter((e)=>{
+            return e?.info?.veg !== true
+        })
+        setOfferData(filteredNonVegData)
     }
 
     // Relevance
@@ -72,6 +87,7 @@ const Offers = () =>{
                    <button onClick={filterDelivery}>Fast Delivery</button>
                    <button onClick={filterRating}>Rating</button>
                    <button onClick={filterVeg}>Veg</button>
+                   <button onClick={filterNonVeg}>Non-Veg</button>
                    <button onClick={filterRelevance}>Clear</button>
                 </div>
                 

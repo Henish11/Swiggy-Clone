@@ -13,6 +13,16 @@ import {IoPersonOutline} from 'react-icons/io5'
 const Header = ()=>{
     const [addClass, setAddClass] = useState(false);
     const cartItems = useSelector(store => store.cart.items)
+    console.log(cartItems);
+
+
+    const tStock = cartItems.map((el)=>{
+        return  el?.card?.info?.inStock
+    })
+    const totalCartCount = tStock.reduce((acc,curr)=>{
+        acc = acc + curr
+        return acc
+    },0)
 
     const changeNavbarClass = () => {
         if (window.scrollY >= 80) {
@@ -34,7 +44,7 @@ const Header = ()=>{
                         <li><Link className="nav-search" to="/search"> <SearchIcon/> Search</Link></li>
                         <li><Link to="/offers"> <OfferIcon/> Offers</Link></li>
                         <li><Link to="/checkout" className={cartItems.length > 0 ? "active nav-cart" : "nav-cart" }> 
-                            <div> <CartIcon/> <span className="nav-cart-count">{cartItems.length}</span></div> 
+                            <div> <CartIcon/> <span className="nav-cart-count">{totalCartCount}</span></div> 
                             Cart</Link>
                         </li>
                     </ul>
@@ -45,7 +55,7 @@ const Header = ()=>{
                <li><Link to="/"> <SiteLogo/> <span>Swiggy</span> </Link></li>
                <li><Link to="/search"> <SearchIcon/> <span>Search</span> </Link></li>
                <li><Link to="/checkout" className={cartItems.length > 0 ? "active mob-nav-cart" : "mob-nav-cart" }> 
-                     <div> <BsBag/> <span className="nav-cart-count">{cartItems.length}</span></div> 
+                     <div> <BsBag/> <span className="nav-cart-count">{totalCartCount}</span></div> 
                      <span>Cart</span></Link>
                </li>
                <li> <Link to="/"> <IoPersonOutline/> <span>Account</span> </Link>  </li>
