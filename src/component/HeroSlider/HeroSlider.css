@@ -1,12 +1,12 @@
 
 .hero-slider-wrap{
     background-color: #171a29;
-    padding: 0 15px;
-    min-height: 344px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    padding: 0px 15px;
     text-align: center;
+}
+.hero-slider-wrap .hero-slider{
+    height: 344px;
+    display: flex;
 }
 .hero-slider .single-slide{
     outline: 0;
