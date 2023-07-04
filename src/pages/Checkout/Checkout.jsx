@@ -34,7 +34,7 @@ const Checkout = () =>{
 
     // totalAmount
     const TotalAmount = cartItem.map((el)=>{
-        return  ( (el?.card?.info?.defaultPrice/100) || (el?.card?.info?.price/100) * (el?.card?.info?.inStock))
+        return  ( ((el?.card?.info?.defaultPrice/100) || (el?.card?.info?.finalPrice/100) || (el?.card?.info?.price/100)) * (el?.card?.info?.inStock))
     })
 
     const roundToDecimal= (number, decimalPlaces) => {
