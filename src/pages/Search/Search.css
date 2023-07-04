@@ -75,6 +75,18 @@
     background-color: transparent;
     cursor: pointer;
 }
+.search-box .form-wrap{
+    position: relative;
+}
+.search-box .form-wrap .clear-search{
+    position: absolute;
+    right: 10px;
+    top: 14px;
+    background: transparent;
+    border: 0;
+    font-size: 20px;
+    cursor: pointer;
+}
 
 
 /* Responsive */

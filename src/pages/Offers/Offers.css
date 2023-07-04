@@ -35,7 +35,7 @@
 }
 .offers-card .offer-img .upto-text{
     display: flex;
-    align-items: end;
+    align-items: flex-end;
     position: absolute;
     bottom: 0;
     left: 0;

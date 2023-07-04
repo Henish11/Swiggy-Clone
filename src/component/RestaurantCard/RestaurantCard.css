@@ -104,6 +104,9 @@
         padding: 15px;
         height: 300px;
     }
+    .hotel-card-wrap .hotel-card .hotel-promoted{
+        left: 9px;
+    }
 }
 @media (max-width:1023px){
     .hotel-card-wrap {

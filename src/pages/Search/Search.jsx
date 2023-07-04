@@ -6,6 +6,8 @@ import "./Search.css"
 import { SEARCH_CUISINES_API } from "../../utils/config"
 import { IMG_LINK } from "../../utils/config"
 import { useNavigate } from "react-router-dom"
+import {v4 as uuidv4} from "uuid"
+import {MdClose} from 'react-icons/md'
 
 const Search = () =>{
 
@@ -68,7 +70,7 @@ const Search = () =>{
                         <h3>Popular Cuisines</h3>
                         <div className="search-cuisines-data">
                             {cuisinesData.map((el)=>{
-                                return  (<button onClick={()=>{
+                                return  (<button key={uuidv4()} onClick={()=>{
                                     handleSearchCuisines(el)
                                     setSearchText(queryToken())
                                     }}>
@@ -80,9 +82,13 @@ const Search = () =>{
                 </div> 
                 :  
                 <div className="search-box">
-                    <form>
-                      <input type="text" placeholder="Search for restaurants and food" value={searchText} onChange={(e)=>{setSearchText(e.target.value)}}/>
-                    </form> 
+                    <div className="form-wrap">
+                        <form>
+                        <input type="text" placeholder="Search for restaurants and food" value={searchText} onChange={(e)=>{setSearchText(e.target.value)}}/>
+                        </form> 
+                        <button className="clear-search" onClick={()=>{setSearchText('')}}><MdClose/></button>
+                    </div>
+
                     <div className="search-result-wrap">
                         <div className="search-tab-wrap">
                             <div className="search-tab">
