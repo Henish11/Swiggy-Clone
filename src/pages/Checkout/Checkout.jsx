@@ -34,8 +34,13 @@ const Checkout = () =>{
 
     // totalAmount
     const TotalAmount = cartItem.map((el)=>{
-        return  ((el?.card?.info?.price/100) * (el?.card?.info?.inStock))
+        return  ( (el?.card?.info?.defaultPrice/100) || (el?.card?.info?.price/100) * (el?.card?.info?.inStock))
     })
+
+    const roundToDecimal= (number, decimalPlaces) => {
+        const factor = 10 ** decimalPlaces;
+        return Math.round(number * factor) / factor;
+      }
 
     return cartItem.length === 0 
         ?
@@ -87,7 +92,7 @@ const Checkout = () =>{
                    ₹{
                         TotalAmount.reduce((acc,curr)=>{
                             acc = acc + curr
-                            return acc
+                            return roundToDecimal(acc,2)
                         },0)
                     }
                   </span>

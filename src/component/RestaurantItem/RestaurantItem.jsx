@@ -28,12 +28,12 @@ const RestaurantItem =(props) =>{
                         </div>
                         <h4>{el?.card?.info?.name}</h4>
                         <span>
-                           { el?.card?.info?.defaultPrice ? `₹${el?.card?.info?.defaultPrice/100}` : `₹${el?.card?.info?.price/100}`}
-                            {/* {(el?.card?.info?.finalPrice) ?
+                           {/* { el?.card?.info?.defaultPrice ? `₹${el?.card?.info?.defaultPrice/100}` : `₹${el?.card?.info?.price/100}`} */}
+                            {(el?.card?.info?.finalPrice) ?
                              <> 
                              <span className="old-price">{`₹${el?.card?.info?.price/100}`}</span> <span>{`₹${el?.card?.info?.finalPrice/100}`}</span> </> 
-                             : (`₹${el?.card?.info?.defaultPrice/100}`) || (`₹${el?.card?.info?.price/100}`)
-                            }  */}
+                             : (el?.card?.info?.defaultPrice) ? (`₹${el?.card?.info?.defaultPrice/100}`) : (`₹${el?.card?.info?.price/100}`) 
+                            } 
                         </span>
                         <p>{el?.card?.info?.description}</p>
                   </div>
