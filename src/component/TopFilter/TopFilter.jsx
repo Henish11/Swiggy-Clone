@@ -9,28 +9,31 @@ const TopFilter = ({restaurantCount,setFilterData,filterData,allRestaurant}) =>{
     const [filterbtn,setFilterbtn] = useState(0)
     console.log(filterData);
 
+    console.log(filterData.map((e)=>{
+         return (e?.info?.costForTwo).replace("₹", "").replace(" for two", "")
+    }));
     // High To Low Price Sort
     const sortHightolow = () =>{
         const sortedAllRestaurant = [...filterData]
-        sortedAllRestaurant.sort((a,b)=> b?.data?.costForTwo - a?.data?.costForTwo)
+        sortedAllRestaurant.sort((a,b)=> (b?.info?.costForTwo).replace("₹", "").replace(" for two", "") - (a?.info?.costForTwo).replace("₹", "").replace(" for two", ""))
         setFilterData(sortedAllRestaurant)
     }
     // Low To High Price Sort
     const sortLowtohigh = () =>{
         const sortedAllRestaurant = [...filterData]
-        sortedAllRestaurant.sort((a,b)=> a?.data?.costForTwo - b?.data?.costForTwo)
+        sortedAllRestaurant.sort((a,b)=> (a?.info?.costForTwo).replace("₹", "").replace(" for two", "") - (b?.info?.costForTwo).replace("₹", "").replace(" for two", ""))
         setFilterData(sortedAllRestaurant)
     }
     // Sort by Rating
     const sortbyRating = () =>{
         const sortedAllRestaurant = [...filterData]
-        sortedAllRestaurant.sort((a,b)=> (+(b?.data?.avgRating)) - +(a?.data?.avgRating))
+        sortedAllRestaurant.sort((a,b)=> (b?.info?.avgRating - a?.info?.avgRating))
         setFilterData(sortedAllRestaurant)
     }
     // Sort by DeliveryTime
     const sortbyDeliveryTime = () =>{
         const sortedAllRestaurant = [...filterData]
-        sortedAllRestaurant.sort((a,b)=> (+(a?.data?.deliveryTime)) - +(b?.data?.deliveryTime))
+        sortedAllRestaurant.sort((a,b)=> (a?.info?.sla?.deliveryTime - b?.info?.sla?.deliveryTime))
         setFilterData(sortedAllRestaurant)
     }
     // Sort by Relevance
@@ -40,7 +43,7 @@ const TopFilter = ({restaurantCount,setFilterData,filterData,allRestaurant}) =>{
 
     return(
         <div className="hotel-top-bar" id="scroll-down">
-            <h1 className="hotel-count">{restaurantCount} restaurants</h1>
+            <h1 className="hotel-count">{restaurantCount}All restaurants</h1>
             <div className={filterbtn === 0 ? "filter-btn" : "filter-btn active"}>
                 <button onClick={()=> {sortbyRelevance()
                     setFilterbtn(0)}}>Relevance</button>  

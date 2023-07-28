@@ -20,15 +20,16 @@ const Home = () =>{
     // Restaurant data
     const getRestaurantMore = async (offset)=>{
         try{
-            const data = await axios.get(`https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=21.1417761&lng=72.77094149999999&offset=${offset}&sortBy=RELEVANCE&pageType=SEE_ALL&page_type=DESKTOP_SEE_ALL_LISTING`);
-            setAllRestaurant(prev => [...prev, ...data?.data?.data?.cards.map(e=> e.data)])
-            setFilterData( prev => [...prev, ...data?.data?.data?.cards.map(e=> e.data)])
-            setRestaurantCount(data?.data?.data?.totalSize)
+            const data = await axios.get(`https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=21.1417761&lng=72.77094149999999&offset=${offset}e_t&sortBy=RELEVANCE&pageType=SEE_ALL&page_type=DESKTOP_SEE_ALL_LISTING`);
+            setAllRestaurant(prev=>[...prev,...data?.data?.data?.cards.filter((ele)=>ele?.card?.card?.id === "restaurant_grid_listing")[0]?.card?.card?.gridElements?.infoWithStyle?.restaurants])
+            setFilterData(prev=>[...prev,...data?.data?.data?.cards.filter((ele)=>ele?.card?.card?.id === "restaurant_grid_listing")[0]?.card?.card?.gridElements?.infoWithStyle?.restaurants])
+            // setRestaurantCount(data?.data?.data?.totalSize)
         }catch(err){
            alert(err.message)
         }
  
     }
+    console.log(filterData);
     useEffect(()=>{
         getRestaurantMore(offset)
     },[offset])
@@ -51,7 +52,7 @@ const Home = () =>{
     return allRestaurant.length === 0 ? <> <CarouselShimmer/> <Shimmer key={uuidv4()}/></>  : (
         <>
             <div className="hero-slider-wrap">
-                <HeroSlider/>
+                {/* <HeroSlider/> */}
             </div>
             <div className="main">
                 <div className="container">
@@ -61,7 +62,7 @@ const Home = () =>{
                         </a>
                     </div>
                 <TopFilter 
-                    restaurantCount={restaurantCount}
+                    // restaurantCount={restaurantCount}
                     setFilterData={setFilterData}
                     filterData={filterData}
                     allRestaurant={allRestaurant}

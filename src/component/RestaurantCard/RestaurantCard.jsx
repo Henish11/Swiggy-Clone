@@ -6,14 +6,14 @@ import "./RestaurantCard.css"
 import { Link } from "react-router-dom";
 
 const RestaurantCard = (props) =>{
-    const {name,cloudinaryImageId,cuisines,costForTwoString,slaString,avgRating,promoted,id,slugs} = props?.hotel?.data;
-
+    console.log(props);
+    const {name,cloudinaryImageId,cuisines,costForTwo,sla,avgRating,promoted,id,slugs} = props?.hotel?.info;
     return(
         <Link to={`restaurant/${slugs?.restaurant}/${id}`}>
             <div className="hotel-card">
             {promoted ? <div className="hotel-promoted">Promoted</div> : null}
             <div className="card-img">
-                {cloudinaryImageId ? <img src={IMG_LINK + cloudinaryImageId} alt={name} /> : null }
+                {cloudinaryImageId ? <img src={IMG_LINK + cloudinaryImageId}  /> : null }
             </div>
             <div className="title">
                 <span>{name}</span>
@@ -22,13 +22,13 @@ const RestaurantCard = (props) =>{
                 <div className="rating">
                 <span className={avgRating >= 4 ? " star-badge" : "red-star star-badge" }> <AiFillStar/> {avgRating} </span>
                 <span><BsDot/></span>
-                <span>{slaString}</span>
+                <span>{sla?.slaString}</span>
                 <span><BsDot/></span>
-                <span>{costForTwoString}</span>
+                <span>{costForTwo}</span>
                 </div>
             </div>
         </Link>
-    )
+    ) 
 }
 
 export default RestaurantCard

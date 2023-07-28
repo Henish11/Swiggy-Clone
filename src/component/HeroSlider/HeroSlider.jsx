@@ -44,7 +44,7 @@ const HeroSlider = () =>{
         ]
     };
 
-    return carouselData.length === 0 ? <CarouselShimmer/> : (
+    return carouselData.length !== 0 ? <CarouselShimmer/> : (
         <div className="hero-slider">
           <div className="container">
             <Slider {...settings}>

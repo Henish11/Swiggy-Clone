@@ -88,7 +88,7 @@
     left: 1px;
     bottom: -9px;
     content: "";
-    width: 8px;
+    width: 9px;
     height: 11px;
     clip-path: polygon(50% 0, 0 100%, 100% 100%);
     background-color: var(--black-color);
