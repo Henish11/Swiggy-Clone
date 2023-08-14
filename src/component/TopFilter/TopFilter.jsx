@@ -7,11 +7,7 @@ import {ReactComponent as FilterIcon} from "../../assets/icons/filter.svg"
 const TopFilter = ({restaurantCount,setFilterData,filterData,allRestaurant}) =>{
 
     const [filterbtn,setFilterbtn] = useState(0)
-    console.log(filterData);
 
-    console.log(filterData.map((e)=>{
-         return (e?.info?.costForTwo).replace("₹", "").replace(" for two", "")
-    }));
     // High To Low Price Sort
     const sortHightolow = () =>{
         const sortedAllRestaurant = [...filterData]

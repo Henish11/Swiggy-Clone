@@ -29,7 +29,7 @@
     align-items: center;
     padding: 0;
     margin: 0;
-    gap: 60px;
+    gap: 50px;
     list-style: none;
     justify-content: flex-end;
 }
@@ -108,7 +108,8 @@ html{
       gap: 0;
     }
    .header .nav-bar .nav-search,
-   .header .nav-bar .nav-cart {
+   .header .nav-bar .nav-cart,
+   .header .nav-bar .nav-user{
      display: none;
    }
    .mobile-bottom-bar{
@@ -185,4 +186,10 @@ html{
    .mobile-bottom-bar li a:focus .nav-cart-count{
       color: #fff !important;
    }
+}
+
+@media(max-width:359px){
+    .mobile-bottom-bar li {
+        padding: 0px 20px;
+    }
 }

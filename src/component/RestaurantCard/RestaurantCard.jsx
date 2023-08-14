@@ -6,7 +6,6 @@ import "./RestaurantCard.css"
 import { Link } from "react-router-dom";
 
 const RestaurantCard = (props) =>{
-    console.log(props);
     const {name,cloudinaryImageId,cuisines,costForTwo,sla,avgRating,promoted,id,slugs} = props?.hotel?.info;
     return(
         <Link to={`restaurant/${slugs?.restaurant}/${id}`}>

@@ -29,7 +29,6 @@ const Home = () =>{
         }
  
     }
-    console.log(filterData);
     useEffect(()=>{
         getRestaurantMore(offset)
     },[offset])

@@ -1,0 +1,105 @@
+
+.userForm{
+    margin-top: 35px;
+}
+.userForm input{
+   display: block;
+   height: 30px;
+   margin-top: 15px;
+   padding: 5px 10px;
+   width: calc(100% - 25px);
+   outline: none;
+}
+.userForm button{
+    width: 100%;
+    text-decoration: none;
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+    border: none;
+    line-height: 50px;
+    font-size: 14px;
+    font-weight: 600;
+    height: 50px;
+    padding: 0 2rem;
+    color: #fc8019;
+    letter-spacing: 0;
+    color: #fff;
+    background-color: #fc8019;
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,.12);
+    text-transform: uppercase;
+    margin-top: 20px;
+}
+.userForm .formError{
+   margin-bottom: 10px;
+   margin-top: 4px;
+   color: rgb(204, 72, 72);
+}
+
+.LoginBox{
+    position: fixed;
+    z-index: 99999;
+    visibility: hidden;
+    width: 100%;
+    background: rgb(40, 44, 63,0.7);
+    inset: 0;
+
+}
+.LoginBox.active{
+    visibility: visible;
+}
+.LoginBox .boxWrap{
+    width: 25%;
+    padding: 40px;
+    margin-left: auto;
+    background-color: #fff;
+    height: 100%;
+    transform: translateX(100%);
+    top: 0;
+    height: 100%;
+    transition: transform .3s ease-out;
+}
+.LoginBox.active .boxWrap{
+    transform: translateX(0);
+    left: auto;
+    right: 0px;
+}
+
+.LoginBox .closeBtn{
+    font-size: 25px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.googleButtonWrap{
+    text-align: center;
+    margin-top: 30px;
+}
+.googleButtonWrap .googleButton{
+    margin-top: 15px !important;
+    margin: auto;
+}
+.toggleLink span{
+    font-weight: 500;
+    cursor: pointer;
+    color: #fc8019;
+}
+.LoginBox .title{
+    margin-bottom: 5px;
+    font-size: 2rem;
+}
+
+
+/* Responsive */
+
+@media(max-width:1023px){
+    .LoginBox .boxWrap {
+        width: 35%;
+    }
+}
+
+@media(max-width:767px){
+    .LoginBox .boxWrap{
+        width: auto;
+    }
+}

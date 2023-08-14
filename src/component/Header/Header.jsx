@@ -8,12 +8,15 @@ import "./Header.css"
 import { useSelector } from "react-redux";
 import {BsBag} from "react-icons/bs"
 import {IoPersonOutline} from 'react-icons/io5'
+import {FaRegUser} from 'react-icons/fa'
+import { useUserAuth } from "../../context/userContext";
 
 
-const Header = ()=>{
+const Header = ({handleVisible})=>{
+
+    const {user,logOut} = useUserAuth()
     const [addClass, setAddClass] = useState(false);
     const cartItems = useSelector(store => store.cart.items)
-    console.log(cartItems);
 
 
     const tStock = cartItems.map((el)=>{
@@ -33,6 +36,11 @@ const Header = ()=>{
         }
     };
     window.addEventListener('scroll', changeNavbarClass);
+
+    const handleLogout =()=>{
+        logOut()
+    }
+
     return(
         <>
             <div className={addClass ? 'header sticky' : 'header'}>
@@ -47,6 +55,11 @@ const Header = ()=>{
                             <div> <CartIcon/> <span className="nav-cart-count">{totalCartCount}</span></div> 
                             Cart</Link>
                         </li>
+                        {!user ? 
+                        <li className="nav-user"><Link to="#" onClick={()=>{handleVisible()}}><FaRegUser/> Sign In</Link></li> :
+                        <li className="nav-user"><Link to="#" onClick={()=>{handleLogout()}}><FaRegUser/> Logout </Link></li>
+                        }
+                        
                     </ul>
                 </div>
             </div>
@@ -58,7 +71,10 @@ const Header = ()=>{
                      <div> <BsBag/> <span className="nav-cart-count">{totalCartCount}</span></div> 
                      <span>Cart</span></Link>
                </li>
-               <li> <Link to="/"> <IoPersonOutline/> <span>Account</span> </Link>  </li>
+               {!user ? 
+                        <li><Link to="#" onClick={()=>{handleVisible()}}><IoPersonOutline/> <span>Sign In</span></Link></li> :
+                        <li><Link to="#" onClick={()=>{handleLogout()}}><IoPersonOutline/> <span>Logout</span> </Link></li>
+                        }
             </ul>
         </>
     )
