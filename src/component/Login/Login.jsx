@@ -26,6 +26,10 @@ const Login = ({ isVisible, setIsVisible, handleToggle,toggle}) => {
       const result = await login(formData.email, formData.password);
       console.log(result);
       toast.success("Login Succesfully !!");
+      setTimeout(() => {
+        navigate("/");
+        setIsVisible(!isVisible);
+      }, 2000);
     } catch (error) {
       console.log(error);
       toast.error(error.message);

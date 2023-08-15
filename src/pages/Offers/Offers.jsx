@@ -34,7 +34,6 @@ const Offers = () =>{
     useEffect(()=>{
       findOfferData();
     },[]);
-    console.log(offerData);
 
     // Fast Delivery 
     const filterDelivery = () =>{
@@ -93,9 +92,9 @@ const Offers = () =>{
                 
 
                 <div className="offers-card-wrap">
-                    {offerData.map((el)=>{
+                    {offerData.map((el,index)=>{
                         return(
-                            <Link to={`/restaurant/${el?.cta?.link?.split('/')?.at(-1)?.slice(0,-7)}/${el?.info?.id}`} className="offers-card">
+                            <Link key={index} to={`/restaurant/${el?.cta?.link?.split('/')?.at(-1)?.slice(0,-7)}/${el?.info?.id}`} className="offers-card">
                                 <div className="offer-img">
                                    <img src={`${IMG_LINK}${el?.info?.cloudinaryImageId}`} alt="offers" />
                                    <div className="upto-text">{el?.info?.aggregatedDiscountInfoV3?.header} {el?.info?.aggregatedDiscountInfoV3?.subHeader}</div>

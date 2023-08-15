@@ -26,6 +26,9 @@ const Register = ({handleToggle,toggle}) => {
         const result = await signUp(formData.email,formData.password)
         console.log(result);
         toast.success("Register Succesfully !!")
+        setTimeout(() => {
+          handleToggle(!toggle)
+        }, 3000);
      } catch (error) {
         toast.error(error.message)
      }

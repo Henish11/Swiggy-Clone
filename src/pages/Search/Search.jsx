@@ -112,9 +112,6 @@ const Search = () =>{
                                     })
                         
                                 }
-                                {/* {searchData.slice(1).map((item)=>{
-                                return <SearchRestaurantItem item={item} />
-                                })} */}
                             </div>
                         </div>
                     </div> 

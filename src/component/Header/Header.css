@@ -94,6 +94,10 @@ html{
 .mobile-bottom-bar{
     display: none;
 }
+.header .left-block a,
+.header .left-block svg{
+    outline: none;
+}
 
 /* Responsive */
 

@@ -10,6 +10,7 @@ import {BsBag} from "react-icons/bs"
 import {IoPersonOutline} from 'react-icons/io5'
 import {FaRegUser} from 'react-icons/fa'
 import { useUserAuth } from "../../context/userContext";
+import Swal from 'sweetalert2'
 
 
 const Header = ({handleVisible})=>{
@@ -38,7 +39,18 @@ const Header = ({handleVisible})=>{
     window.addEventListener('scroll', changeNavbarClass);
 
     const handleLogout =()=>{
-        logOut()
+        Swal.fire({
+            title: 'Are you sure you want to Logout?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes'
+        }).then(result => {
+            if (result.isConfirmed) {
+                logOut()
+            }
+        });
     }
 
     return(

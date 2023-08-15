@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import {clearCart,removeItem,increaseItem,decreaseItem} from "../../redux/cartSlice";
 import {v4 as uuidv4} from "uuid"
+import Swal from 'sweetalert2'
 
 const Checkout = () =>{
     
@@ -20,7 +21,18 @@ const Checkout = () =>{
     // reducers
     const dispatch = useDispatch();
     const handleClearCart = () =>{
-        dispatch(clearCart())
+        Swal.fire({
+            title: 'Are you sure you want to Clear Cart ?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes'
+        }).then(result => {
+            if (result.isConfirmed) {
+                dispatch(clearCart())
+            }
+        });
     }
     const handleIncreaseItem = (el) =>{
         dispatch(increaseItem(el));

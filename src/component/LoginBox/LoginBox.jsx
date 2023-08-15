@@ -19,7 +19,7 @@ const LoginBox = ({ isVisible, setIsVisible }) => {
             setIsVisible(!isVisible);
           }}/>
         <Login isVisible={isVisible} setIsVisible={setIsVisible} handleToggle={handleToggle} toggle={toggle}/>
-        <Register handleToggle={handleToggle} toggle={toggle}/>
+        <Register handleToggle={handleToggle} toggle={toggle} />
       </div>
     </div>
   );
