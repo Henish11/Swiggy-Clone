@@ -50,8 +50,7 @@ const Search = () =>{
     }
     const queryToken = () =>{
         const value = window.location.search;
-        const token = value.split('=').at(-1).split('%20');
-        console.log(token);
+        const token = value.split('=').at(-1).replaceAll('%20',' ')
         return token 
     }
      
